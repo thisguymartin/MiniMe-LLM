@@ -1,10 +1,36 @@
 [project]
 name = "minime-llm"
 version = "0.1.0"
-description = "Add your description here"
+description = "A minimal and lightweight Large Language Model implementation for learning and experimentation"
 readme = "README.md"
-requires-python = ">=3.13"
+requires-python = ">=3.9"
 dependencies = [
-    "numpy>=2.3.1",
-    "requests",
+    "numpy>=1.20.0",
+    "requests>=2.25.0",
 ]
+
+[project.optional-dependencies]
+dev = [
+    "pytest>=6.0",
+    "black>=21.0",
+    "isort>=5.0",
+    "mypy>=0.800",
+]
+
+[build-system]
+requires = ["setuptools>=61.0", "wheel"]
+build-backend = "setuptools.build_meta"
+
+[tool.black]
+line-length = 88
+target-version = ['py39']
+
+[tool.isort]
+profile = "black"
+line_length = 88
+
+[tool.mypy]
+python_version = "3.9"
+warn_return_any = true
+warn_unused_configs = true
+disallow_untyped_defs = true
