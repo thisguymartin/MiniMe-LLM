@@ -1,3 +1,4 @@
+
 [project]
 name = "minime-llm"
 version = "0.1.0"
@@ -5,7 +6,19 @@ description = "Add your description here"
 readme = "README.md"
 requires-python = ">=3.13"
 dependencies = [
-    "aws",
     "numpy>=2.3.1",
-    "requests",
+    "requests>=2.32.4",
+    "zenml[server]>=0.84.0",
 ]
+
+[project.scripts]
+local-docker-infrastructure-up = "scripts.infrastructure:docker_up"
+local-docker-infrastructure-down = "scripts.infrastructure:docker_down"
+docker-up = "scripts.infrastructure:docker_up"
+docker-down = "scripts.infrastructure:docker_down"
+start = "scripts.infrastructure:docker_up"
+stop = "scripts.infrastructure:docker_down"
+
+# [build-system]
+# requires = ["hatchling"]
+# build-backend = "hatchling.build"
